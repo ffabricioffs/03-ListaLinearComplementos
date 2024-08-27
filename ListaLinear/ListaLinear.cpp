@@ -122,7 +122,31 @@ void inserirElemento()
 
 void excluirElemento()
 {
+	bool avaliaExcluir = false;
+	int excluiElemento;
+	int posicaoParaExcluir;
 
+	cout << "Gostaria de excluir qual elemento? Informe o valor." << endl;
+	cin >> excluiElemento;
+	
+	for (int n = 0; n < nElementos; n++) {
+		if (lista[n] == excluiElemento) {
+			avaliaExcluir = true;
+			posicaoParaExcluir = n; 
+		}
+	}
+
+	if (avaliaExcluir == false) {
+		cout << "Elemento nao encontrado" << endl;
+	}
+	else {
+		for (posicaoParaExcluir = posicaoParaExcluir; posicaoParaExcluir < nElementos; posicaoParaExcluir++) {
+			lista[posicaoParaExcluir] = lista[posicaoParaExcluir + 1];
+		}
+
+		nElementos = nElementos - 1; 
+		cout << "Elemento foi excluido com sucesso." << endl;
+	}
 
 }
 
